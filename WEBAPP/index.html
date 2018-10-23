@@ -23,7 +23,11 @@
             },
             beforeMount: function(){
                 if(this.user == null){
-                    window.location='login.html'
+                    //window.location='login.html'
+                      var user = checkUser("admin", "1234");
+                            if(user!=null) {
+                                setSessionStorage("User",user)
+                            }
                 }
                 this.resetIsSwarmManager();
             },
@@ -78,20 +82,20 @@
                 </div>
                 <h3 class="uk-nav-divider"></h3>
                 <li class="uk-active" v-if="user.role=='Admin'">
-                    <a href="summary.html" target="moduleFrame"><span class="icon uk-icon-dashboard"></span> Summery</a>
+                    <a href="summary.html" target="moduleFrame"><span class="icon uk-icon-dashboard"></span> 概览</a>
                 </li>
                 <h3 class="uk-nav-divider" v-if="user.role=='Admin'"></h3>
                 <li v-if="user.role=='Admin'">
                     <a href="swarm.html" target="moduleFrame"><span class="icon uk-icon-connectdevelop"></span> Swarm</a>
                 </li>
                 <li v-if="user.role=='Admin' && isSwarmManager">
-                    <a href="module/node/list.html" target="moduleFrame"><span class="icon uk-icon-cube"></span > Node</a>
+                    <a href="module/node/list.html" target="moduleFrame"><span class="icon uk-icon-cube"></span > 节点</a>
                 </li>
                 <li v-if="isSwarmManager" :class="[user.role=='Admin'?'':'uk-active']">
-                    <a href="module/service/list.html" target="moduleFrame"><span class="icon uk-icon-gears"></span> Service</a>
+                    <a href="module/service/list.html" target="moduleFrame"><span class="icon uk-icon-gears"></span> 服务</a>
                 </li>
                 <li v-if="user.role=='Admin' && isSwarmManager">
-                    <a href="module/task/list.html" target="moduleFrame"><span class="icon uk-icon-tasks"></span> Task</a>
+                    <a href="module/task/list.html" target="moduleFrame"><span class="icon uk-icon-tasks"></span> 任务</a>
                 </li>
                 <h3 class="uk-nav-divider"></h3>
                 <li>
@@ -100,20 +104,20 @@
                     </a>
                 </li>
                 <li>
-                    <a href="module/network/list.html" target="moduleFrame"><span class="icon uk-icon-sitemap"></span> Network</a>
+                    <a href="module/network/list.html" target="moduleFrame"><span class="icon uk-icon-sitemap"></span> 网络</a>
                 </li>
                 <li>
-                    <a href="module/volume/list.html" target="moduleFrame"><span class="icon uk-icon-clone"></span> Volume</a>
+                    <a href="module/volume/list.html" target="moduleFrame"><span class="icon uk-icon-clone"></span> 卷</a>
                 </li>
                 <li>
-                    <a href="module/image/list.html" target="moduleFrame"><span class="icon uk-icon-object-group"></span> Image</a>
+                    <a href="module/image/list.html" target="moduleFrame"><span class="icon uk-icon-object-group"></span> 镜像</a>
                 </li>
                 <h3 class="uk-nav-divider"></h3>
                 <li>
-                    <a href="setting.html" target="moduleFrame"><span class="icon uk-icon-cog"></span> Setting</a>
+                    <a href="setting.html" target="moduleFrame"><span class="icon uk-icon-cog"></span> 设置</a>
                 </li>
                 <li>
-                    <a href="#" @click="logout()"><span class="icon uk-icon-sign-out"></span> Logout</a>
+                    <a href="#" @click="logout()"><span class="icon uk-icon-sign-out"></span> 退出</a>
                 </li>
             </ul>
         </div>

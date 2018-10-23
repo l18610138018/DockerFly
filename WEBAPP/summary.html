@@ -39,7 +39,7 @@
         <div class="uk-panel"></div>
         <h3></h3>
         <div>
-            <h3 class="uk-text-middle"><span class="icon uk-icon-dashboard"></span> Summery</h3>
+            <h3 class="uk-text-middle"><span class="icon uk-icon-dashboard"></span> 概览</h3>
             <table class="uk-table uk-overflow-container uk-panel-box">
                 <tr>
                     <td colspan="4">
@@ -57,7 +57,7 @@
                                 <div class="uk-border-circle uk-container-center summery_badge uk-vertical-align"
                                      style="background-color: #a1b700; ">
                                     <div class="uk-vertical-align-middle">
-                                        <div class="uk-text-large uk-text-bold">Memory</div>
+                                        <div class="uk-text-large uk-text-bold">内存</div>
                                         <div>{{Math.ceil(dockerInfo.memTotal/1000/1024)}} Mb</div>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
                                 <div class="uk-border-circle uk-container-center summery_badge uk-vertical-align"
                                      style="background-color: #b73200; ">
                                     <div class="uk-vertical-align-middle">
-                                        <div class="uk-text-large uk-text-bold">Container</div>
+                                        <div class="uk-text-large uk-text-bold">容器</div>
                                         <div>{{dockerInfo.containers}}</div>
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                                 <div class="uk-border-circle uk-container-center summery_badge uk-vertical-align"
                                      style="background-color: #00b784; ">
                                     <div class="uk-vertical-align-middle">
-                                        <div class="uk-text-large uk-text-bold">Images</div>
+                                        <div class="uk-text-large uk-text-bold">镜像</div>
                                         <div>{{imageList.length}}</div>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                     </td>
                 </tr>
             </table>
-            <h3 class="uk-text-middle"><span class="icon uk-icon-codepen"></span> Host info</h3>
+            <h3 class="uk-text-middle"><span class="icon uk-icon-codepen"></span> 主机信息</h3>
             <table class="uk-table uk-overflow-container uk-panel-box">
                 <tbody>
                 <tr>
@@ -109,46 +109,46 @@
                 -->
                 </tbody>
             </table>
-            <h3 class="uk-text-middle"><span class="icon uk-icon-info-circle"></span> Docker info</h3>
+            <h3 class="uk-text-middle"><span class="icon uk-icon-info-circle"></span> Docker信息</h3>
             <table class="uk-table uk-overflow-container uk-panel-box">
                 <tbody>
                 <tr>
-                    <td class="uk-width-1-10 uk-text-right summeryField">Container:</td>
+                    <td class="uk-width-1-10 uk-text-right summeryField">容器:</td>
                     <td class="uk-width-1-4"><span class="uk-text-bold">Total: {{dockerInfo.containers}}</span> /
                         <span class="uk-text-primary uk-text-bold">Running: {{dockerInfo.containersRunning}}</span> /
                         <span class="uk-text-success uk-text-bold">Paused: {{dockerInfo.containersPaused}} </span> /
                         <span class="uk-text-danger uk-text-bold"> Stoped: {{dockerInfo.containersStopped}} </span>
                     </td>
-                    <td class="uk-width-1-10 uk-text-right summeryField">Images:</td>
+                    <td class="uk-width-1-10 uk-text-right summeryField">镜像:</td>
                     <td class="uk-width-1-4 ">{{imageList.length}}</td>
                 </tr>
                 <tr>
                     <td class="uk-width-1-10 uk-text-right summeryField">Docker home:</td>
                     <td class="uk-width-1-4">{{dockerInfo.dockerRootDir}}</td>
-                    <td class="uk-width-1-10 uk-text-right summeryField">Docker version:</td>
+                    <td class="uk-width-1-10 uk-text-right summeryField">Docker版本:</td>
                     <td class="uk-width-1-4">{{dockerInfo.serverVersion}}</td>
                 </tr>
                 <tr>
-                    <td class="uk-width-1-10 uk-text-right summeryField">DockerHub mirror:</td>
+                    <td class="uk-width-1-10 uk-text-right summeryField">DockerHub 镜像:</td>
                     <td class="uk-width-1-4" colspan="3">
                         <code v-for="mirror in dockerInfo.registryConfig.mirrors">{{mirror}}</code>
                     </td>
                 </tr>
                 </tbody>
             </table>
-            <h3 class="uk-text-middle"><span class="icon uk-icon-mixcloud"></span> Cluster info</h3>
+            <h3 class="uk-text-middle"><span class="icon uk-icon-mixcloud"></span> 集群信息</h3>
             <table class="uk-table uk-overflow-container uk-panel-box">
                 <tbody>
                 <tr>
-                    <td class="uk-width-1-10 uk-text-right summeryField">Node id:</td>
+                    <td class="uk-width-1-10 uk-text-right summeryField">节点id:</td>
                     <td class="uk-width-1-4">{{dockerInfo.swarm.nodeId}}</td>
-                    <td class="uk-width-1-10 uk-text-right summeryField">Node addr:</td>
+                    <td class="uk-width-1-10 uk-text-right summeryField">节点地址:</td>
                     <td class="uk-width-1-4">{{dockerInfo.swarm.nodeAddr}}</td>
                 </tr>
                 <tr v-for="(remoteManager,index) in dockerInfo.swarm.remoteManagers">
-                    <td class="uk-width-1-10 uk-text-right summeryField">Manager id:</td>
+                    <td class="uk-width-1-10 uk-text-right summeryField">管理节点id:</td>
                     <td class="uk-width-1-4">{{remoteManager.nodeId}}</td>
-                    <td class="uk-width-1-10 uk-text-right summeryField">Manager addr:</td>
+                    <td class="uk-width-1-10 uk-text-right summeryField">管理节点地址:</td>
                     <td class="uk-width-1-4">{{remoteManager.addr}}</td>
                 </tr>
                 </tbody>
@@ -156,12 +156,6 @@
         </div>
     </div>
     <div class="uk-width-6-6">
-        <div style="min-height:40px;" class="uk-text-center uk-margin-bottom">
-            <div><img height="27" width="120" src="img/logo.png"/></div>
-            <div>Copyright <span class="uk-icon-copyright"></span> Voovan Vsetful</div>
-            <div>Powered by Voovan open source framework.</div>
-            <div></div>
-        </div>
     </div>
 </div>
 
