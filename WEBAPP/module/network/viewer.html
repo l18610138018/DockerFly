@@ -63,8 +63,8 @@
         </h3>
 
         <ul class="uk-tab" data-uk-switcher="{connect:'#Viewers'}">
-            <li><a href="#"><span class="uk-icon-sliders"></span> Summery</a></li>
-            <li><a href="#"><span class="uk-icon-desktop"></span> Container</a></li>
+            <li><a href="#"><span class="uk-icon-sliders"></span> 概览</a></li>
+            <li><a href="#"><span class="uk-icon-desktop"></span> 容器</a></li>
         </ul>
         <div id="Viewers" class="uk-switcher">
             <div>
@@ -72,7 +72,7 @@
                     <table class="uk-table uk-overflow-container uk-panel-box">
                         <caption>
                             <div class="uk-grid">
-                                <div class="uk-width-5-6"><span class="uk-icon-info-circle"></span> Network infomation</div>
+                                <div class="uk-width-5-6"><span class="uk-icon-info-circle"></span> 网络信息</div>
                             </div>
                         </caption>
                         <tbody>
@@ -81,27 +81,27 @@
                             <td class="uk-text-bold">{{viewNetwork.id |shortString(12)}}</td>
                         </tr>
                         <tr>
-                            <td class="uk-width-1-10 uk-text-right summeryField">Name </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">名称 </td>
                             <td class="uk-text-primary">{{viewNetwork.name}}</td>
                         </tr>
                         <tr>
-                            <td class="uk-width-1-10 uk-text-right summeryField">Scope </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">范围 </td>
                             <td class="uk-text-success">{{viewNetwork.scope}}</td>
                         </tr>
                         <tr>
-                            <td class="uk-width-1-10 uk-text-right summeryField">Driver </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">驱动 </td>
                             <td class="uk-text-warning">{{viewNetwork.driver}}</td>
                         </tr>
                         <tr>
-                            <td class="uk-width-1-10 uk-text-right summeryField">EnableIPv6 </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">允许IPv6 </td>
                             <td class="uk-text-muted">{{viewNetwork.enableIPv6}}</td>
                         </tr>
                         <tr>
-                            <td class="uk-width-1-10 uk-text-right summeryField">Internal </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">外网 </td>
                             <td class="uk-text-muted">{{viewNetwork.internal}}</td>
                         </tr>
                         <tr>
-                            <td class="uk-width-1-10 uk-text-right summeryField">Attachable </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">关联 </td>
                             <td class="uk-text-muted">{{viewNetwork.attachable}}</td>
                         </tr>
                         <tr v-if="viewNetwork.ipam.config.length!=0">
@@ -114,7 +114,7 @@
                             </td>
                         </tr>
                         <tr v-if="JSON.stringify(viewNetwork.options)!='{}'">
-                            <td class="uk-width-1-10 uk-text-right summeryField">Options </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">选项 </td>
                             <td class="uk-text-bold">
                                 <div v-for="(value, key) in viewNetwork.options">
                                     <code>{{key}}<span class="uk-text-primary uk-text-bold" > = </span><span class="uk-text-success">{{value}}</span></code>
@@ -122,7 +122,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="uk-width-1-10 uk-text-right summeryField">Created </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">创建 </td>
                             <td class="">{{viewNetwork.created | strToDate}}</td>
                         </tr>
                         </tbody>
@@ -134,7 +134,7 @@
                             </div>
                         </caption>
                         <thead>
-                        <th>Host Name</th>
+                        <th>主机名</th>
                         <th>IP</th>
                         </thead>
                         <tbody>
@@ -152,15 +152,15 @@
                     <table class="uk-table uk-table-condensed uk-overflow-container uk-panel-box">
                         <caption>
                             <div class="uk-grid">
-                                <div class="uk-width-5-6"><span class="uk-icon-desktop"></span> Container infomation</div>
+                                <div class="uk-width-5-6"><span class="uk-icon-desktop"></span> 容器信息</div>
                             </div>
                         </caption>
                         <thead>
                         <th class="uk-width-1-5 uk-text-center">ID</th>
                         <th class="uk-width-1-5">Name</th>
-                        <th class="uk-width-1-5 uk-text-center">IPv4Address</th>
-                        <th class="uk-width-1-5 uk-text-center">MacAddress</th>
-                        <th class="uk-width-1-5 uk-text-center">Disconnect</th>
+                        <th class="uk-width-1-5 uk-text-center">IPv4地址</th>
+                        <th class="uk-width-1-5 uk-text-center">Mac地址</th>
+                        <th class="uk-width-1-5 uk-text-center">断开连接</th>
                         </thead>
                         <tbody>
                         <tr v-for="(container, id) in viewNetwork.containers">
@@ -180,7 +180,7 @@
                             </td>
                             <td class="uk-text-center">
                                 <span class="uk-text-primary">
-                                    <button class="uk-button uk-button-danger uk-button-small" @click="disconnect(id)">Disconnect</button>
+                                    <button class="uk-button uk-button-danger uk-button-small" @click="disconnect(id)">断开连接</button>
                                 </span>
                             </td>
                         </tr>
@@ -192,10 +192,6 @@
     </div>
     <div class="uk-width-6-6">
         <div style="min-height:40px;" class="uk-text-center uk-margin-bottom">
-            <div><img height="27" width="120" src="../../img/logo.png"/></div>
-            <div>Copyright <span class="uk-icon-copyright"></span> Voovan Vsetful</div>
-            <div>Powered by Voovan open source framework.</div>
-            <div></div>
         </div>
     </div>
 </div>

@@ -107,7 +107,7 @@
                     }
                 },
                 updateName: function (node) {
-                    UIkit.modal.prompt("<span class='uk-text-large uk-text-primary uk-text-bold'>Node name:</span>", node.spec.name, function(newvalue){
+                    UIkit.modal.prompt("<span class='uk-text-large uk-text-primary uk-text-bold'>节点名称:</span>", node.spec.name, function(newvalue){
                         try {
                             var cmdNodeUpdate = new CmdNodeUpdate(node.id, parseInt(node.version.index));
                             connect(cmdNodeUpdate);
@@ -140,7 +140,7 @@
         <div class="uk-grid uk-margin">
             <div class="uk-width-1-2">
                 <h3 class="uk-text-middle">
-                    <span class="icon uk-icon-cube"></span> Node manager
+                    <span class="icon uk-icon-cube"></span> 节点管理
                 </h3>
             </div>
             <div class="uk-width-1-2 uk-text-right">
@@ -153,9 +153,9 @@
                     <span class="mr5">Id:</span>
                     <input class="uk-form-width-medium" id="id"
                            type="text" placeholder="node id" v-model="queryParams.id">
-                    <span class="mr5">Role:</span>
+                    <span class="mr5">角色 :</span>
                     <select v-model="queryParams.role">
-                        <option value="ALL">All</option>
+                        <option value="ALL">all</option>
                         <option value="worker">worker</option>
                         <option value="manager">manager</option>
                     </select>
@@ -168,13 +168,13 @@
             <tr>
                 <th class="uk-text-center table_colume_index">NO.</th>
                 <th style="width:113px">ID</th>
-                <th class="uk-width-2-10">Name <span class="uk-text-muted uk-text-small">( node / host ) </span></th>
-                <th class="uk-width-1-10 uk-text-center">Role</th>
-                <th class="uk-width-1-10 uk-text-center">Status</th>
-                <th class="uk-width-1-10 uk-text-center">Availability</th>
-                <th class="uk-width-2-10" style="width: 110px">Resource</th>
-                <th class="uk-width-1-10">Platform</th>
-                <th class="uk-text-center uk-width-1-10">Opertaion</th>
+                <th class="uk-width-2-10">名称 <span class="uk-text-muted uk-text-small">( node / host ) </span></th>
+                <th class="uk-width-1-10 uk-text-center">角色 </th>
+                <th class="uk-width-1-10 uk-text-center">状态</th>
+                <th class="uk-width-1-10 uk-text-center">有效</th>
+                <th class="uk-width-2-10" style="width: 110px">资源</th>
+                <th class="uk-width-1-10">平台</th>
+                <th class="uk-text-center uk-width-1-10">操作</th>
             </tr>
             </thead>
 
@@ -208,7 +208,7 @@
                 <td class="uk-text-center uk-text-middle">
                     <div class="uk-button-group">
                         <a href="#" class="uk-button uk-button-primary uk-button-small" @click="openUpdateDialog(node)">
-                            <span class="uk-icon-list-alt"></span> Update</a>
+                            <span class="uk-icon-list-alt"></span> 更新</a>
                         <div data-uk-dropdown="{mode:'click'}">
                             <!-- 触发下拉菜单的按钮 -->
                             <a href="" class="uk-button uk-button-primary uk-button-small"><span class="uk-icon-caret-down"></span></a>
@@ -216,7 +216,7 @@
                             <div class="uk-dropdown uk-dropdown-small">
                                 <ul class="uk-nav uk-nav-dropdown uk-text-left">
                                     <li><a href="#" @click="remove(node)"
-                                           class=" uk-text-danger"><span class="uk-icon-trash"></span> Remove</a></li>
+                                           class=" uk-text-danger"><span class="uk-icon-trash"></span> 移除</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -229,11 +229,11 @@
     <div id="updateNodeDialog" class="uk-modal">
         <div class="uk-modal-dialog uk-overflow-container">
             <a href="#" class="uk-modal-close uk-close uk-close-alt"></a>
-            <div class="uk-modal-header"><h3 class="uk-text-primary uk-text-bold"><span class="icon uk-icon-cube"></span> &nbsp;Update node</h3></div>
+            <div class="uk-modal-header"><h3 class="uk-text-primary uk-text-bold"><span class="icon uk-icon-cube"></span> &nbsp;更新节点</h3></div>
             <div class="uk-form">
                 <table class="uk-table uk-overflow-container uk-panel-box">
                     <tr>
-                        <td class="dialogField">Driver:</td>
+                        <td class="dialogField">驱动:</td>
                         <td>
                             <select class="uk-form-width-medium" v-model="updateParams.role">
                                 <option value="manager">manager</option>
@@ -242,7 +242,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="dialogField">Availability:</td>
+                        <td class="dialogField">有效:</td>
                         <td>
                             <select class="uk-form-width-medium" v-model="updateParams.availability">
                                 <option value="active">active</option>
@@ -252,7 +252,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="dialogField">Node name:</td>
+                        <td class="dialogField">节点名称:</td>
                         <td><input class="uk-form-width-medium" type="text"
                                    placeholder="node name" v-model="updateParams.name"/></td>
                     </tr>
@@ -266,12 +266,6 @@
         </div>
     </div>
     <div class="uk-width-6-6">
-        <div style="min-height:40px;" class="uk-text-center uk-margin-bottom">
-            <div><img height="27" width="120" src="../../img/logo.png"/></div>
-            <div>Copyright <span class="uk-icon-copyright"></span> Voovan Vsetful</div>
-            <div>Powered by Voovan open source framework.</div>
-            <div></div>
-        </div>
     </div>
 </div>
 

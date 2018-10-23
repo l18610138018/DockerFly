@@ -96,7 +96,7 @@
                             var cmdContainerStart = new CmdContainerStart(container.id);
                             connect(cmdContainerStart);
 
-                            var blockDialog = openBlockDialog("Starting Container...");
+                            var blockDialog = openBlockDialog("启动容器...");
                             cmdContainerStart.send(function(msg){
                                 blockDialog.hide();
                                 alert("<span class='uk-text-large uk-text-primary'>Container <span class='uk-text-large uk-text-danger'>"+delFirestChar(container.names[0])+"</span> started.</span>")
@@ -124,16 +124,16 @@
                         connect(cmdContainerStop);
                         cmdContainerStop.waitForKill(30);
 
-                        var blockDialog = openBlockDialog("Stoping Container...");
+                        var blockDialog = openBlockDialog("停止容器...");
                         cmdContainerStop.send(function(msg){
                             blockDialog.hide();
-                            alert("<span class='uk-text-large uk-text-primary'>Container <span class='uk-text-large uk-text-danger'>"+delFirestChar(container.names[0])+"</span> stoped.</span>")
+                            alert("<span class='uk-text-large uk-text-primary'>容器 <span class='uk-text-large uk-text-danger'>"+delFirestChar(container.names[0])+"</span> 已停止.</span>")
                             cmdContainerStop.close();
                             cmdContainerStop.release();
                             containerListVue.query();
                         }, function(status, errMsg){
                             blockDialog.hide();
-                            alertError("Stop container "+delFirestChar(container.names[0])+" failed, Docker still try to stoping this container, you can wait a moment and then refresh this page or try to Kill this container ");
+                            alertError("停止容器 "+delFirestChar(container.names[0])+" 失败, Docker 正在试图停止容器，请稍候刷新该页面后，停止或终止该容器 ");
                             cmdContainerStop.close();
                             cmdContainerStop.release();
                             containerListVue.query();
@@ -151,14 +151,14 @@
                         var blockDialog = openBlockDialog("Killing Container...");
                         cmdContainerKill.send(function(msg){
                             blockDialog.hide();
-                            alert("<span class='uk-text-large uk-text-primary'>Container <span class='uk-text-large uk-text-danger'>"+delFirestChar(container.names[0])+"</span> killed.</span>")
+                            alert("<span class='uk-text-large uk-text-primary'>容器 <span class='uk-text-large uk-text-danger'>"+delFirestChar(container.names[0])+"</span> 已终止.</span>")
                             cmdContainerKill.close();
                             cmdContainerKill.release();
                             containerListVue.query();
                         }, function(status, errMsg){
                             blockDialog.hide();
                             var errorObj = eval("errorObj="+errMsg)
-                            alertError("Kill container "+delFirestChar(container.names[0])+" failed <br/>"+errorObj.errMsg);
+                            alertError("终止容器 "+delFirestChar(container.names[0])+" 失败 <br/>"+errorObj.errMsg);
                             cmdContainerKill.close();
                             cmdContainerKill.release();
                         });
@@ -173,23 +173,23 @@
                         name = container.names[0]
                         id = container.id
 
-                        UIkit.modal.confirm("<span class='uk-text-large uk-text-danger'>Are you sure to remove ?</span><hr/> " +
+                        UIkit.modal.confirm("<span class='uk-text-large uk-text-danger'>确定要移除吗 ?</span><hr/> " +
                             "<span class='uk-text-large uk-text-primary'> " + delFirestChar(name) + " </span> ", function () {
                             try {
                                 var cmdContainerRemove = new CmdContainerRemove(id);
                                 connect(cmdContainerRemove);
 
-                                var blockDialog = openBlockDialog("Remove Container...");
+                                var blockDialog = openBlockDialog("移除容器...");
                                 cmdContainerRemove.send(function(msg){
                                     blockDialog.hide();
-                                    alert("<span class='uk-text-large uk-text-primary'>Container <span class='uk-text-large uk-text-danger'>"+delFirestChar(container.names[0])+"</span> removed.</span>")
+                                    alert("<span class='uk-text-large uk-text-primary'>容器 <span class='uk-text-large uk-text-danger'>"+delFirestChar(container.names[0])+"</span> 已移除.</span>")
                                     cmdContainerRemove.close();
                                     cmdContainerRemove.release();
                                     containerListVue.query();
                                 }, function(status, errMsg){
                                     blockDialog.hide();
                                     var errorObj = eval("errorObj="+errMsg)
-                                    alertError("Remove container "+delFirestChar(container.names[0])+" failed <br/>"+errorObj.errMsg);
+                                    alertError("移除容器 "+delFirestChar(container.names[0])+" 失败 <br/>"+errorObj.errMsg);
                                     cmdContainerRemove.close();
                                     cmdContainerRemove.release();
                                 });
@@ -230,7 +230,7 @@
                     }
                     selector = selector + '</select></span>';
                     try {
-                        UIkit.modal.confirm("<span class='uk-text-large uk-text-primary uk-text-bold'>Choice which network to connect ?&nbsp;&nbsp;</span><hr/>"+
+                        UIkit.modal.confirm("<span class='uk-text-large uk-text-primary uk-text-bold'>选择要连接的网络 ?&nbsp;&nbsp;</span><hr/>"+
                             selector, function () {
                             try {
                                 var cmdNetworkConnect = new CmdNetworkConnect($('#networkToConnect').val());
@@ -312,14 +312,14 @@
                         var blockDialog = openBlockDialog("Commit Container...");
                         cmdContainerCommit.send(function(msg){
                             blockDialog.hide();
-                            alert("<span class='uk-text-large uk-text-primary'>Container commited success.</span>")
+                            alert("<span class='uk-text-large uk-text-primary'>容器提交成功.</span>")
                             cmdContainerCommit.close();
                             cmdContainerCommit.release();
                             closeDialog("commitDialog");
                         }, function(status, errMsg){
                             blockDialog.hide();
                             var errorObj = eval("errorObj="+errMsg)
-                            alertError("Commit container "+delFirestChar(container.names[0])+" failed <br/>"+errorObj.errMsg);
+                            alertError("提交容器 "+delFirestChar(container.names[0])+" 失败 <br/>"+errorObj.errMsg);
                             cmdContainerCommit.close();
                             cmdContainerCommit.release();
                             closeDialog("commitDialog");
@@ -401,12 +401,12 @@
             <thead>
             <tr>
                 <th class="uk-text-center table_colume_index">NO.</th>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Network & IP</th>
-                <th>Export Port</th>
-                <th class="uk-text-center">Status</th>
-                <th class="uk-text-center">Operation</th>
+                <th>名称</th>
+                <th>镜像</th>
+                <th>网络 & IP</th>
+                <th>开放端口</th>
+                <th class="uk-text-center">状态</th>
+                <th class="uk-text-center">操作</th>
             </tr>
             </thead>
 
@@ -416,9 +416,9 @@
                 <td class="uk-text-bold uk-text-middle uk-text-primary uk-text-small"
                    :title="container.names[0]|delFirestChar">
                     <span v-if="container.labels['com.docker.swarm.task']==''"
-                          class="icon uk-icon-gears uk-text-danger" title="Swarm container"></span>
+                          class="icon uk-icon-gears uk-text-danger" title="Swarm容器"></span>
                     <span v-if="container.labels['com.docker.swarm.task']==undefined"
-                          class="icon uk-icon-desktop uk-text-success uk-text-small" title="Stander container"></span>
+                          class="icon uk-icon-desktop uk-text-success uk-text-small" title="标准容器"></span>
                      {{container.names[0]|delFirestChar|shortString(20)}}
                 </td>
                 <td class="uk-text-middle ">
@@ -535,9 +535,6 @@
     </div>
     <div class="uk-width-6-6">
         <div style="min-height:40px;" class="uk-text-center uk-margin-bottom">
-            <div><img height="27" width="120" src="../../img/logo.png"/></div>
-            <div>Copyright <span class="uk-icon-copyright"></span> Voovan Vsetful</div>
-            <div>Powered by Voovan open source framework.</div>
         </div>
     </div>
 </div>

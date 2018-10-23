@@ -113,7 +113,7 @@
                         name = service.spec.name;
                         id = service.id
 
-                        UIkit.modal.confirm("<span class='uk-text-large uk-text-danger'>Are you sure to remove ?</span><hr/>" +
+                        UIkit.modal.confirm("<span class='uk-text-large uk-text-danger'>确定要移除吗 ?</span><hr/>" +
                             "<span class='uk-text-large uk-text-primary'> " + name + " </span> ", function () {
                             try {
                                 var cmdServiceRemove = new CmdServiceRemove(id);
@@ -132,7 +132,7 @@
                 },
 
                 scale: function(service){
-                    UIkit.modal.prompt("<span class='uk-text-large uk-text-primary uk-text-bold'>Replicas:</span>", service.spec.mode.replicated.replicas, function(newvalue){
+                    UIkit.modal.prompt("<span class='uk-text-large uk-text-primary uk-text-bold'>复制:</span>", service.spec.mode.replicated.replicas, function(newvalue){
                         try {
                             var cmdServiceUpdate = new CmdServiceUpdate(service);
                             connect(cmdServiceUpdate);
@@ -164,7 +164,7 @@
         <div class="uk-grid uk-margin">
             <div class="uk-width-1-2">
                 <h3 class="uk-text-middle">
-                    <span class="icon uk-icon-gears"></span> Service manager
+                    <span class="icon uk-icon-gears"></span> 服务管理
                 </h3>
             </div>
             <div class="uk-width-1-2 uk-text-right">
@@ -177,7 +177,7 @@
                     <span class="mr5">Id:</span>
                     <input class="uk-form-width-medium"
                            type="text" placeholder="service  id" v-model="queryParams.id">
-                    <span class="mr5">Name:</span>
+                    <span class="mr5">名称:</span>
                     <input class="uk-form-width-medium"
                            type="text" placeholder="service name" v-model="queryParams.name">
                     <a class="uk-button uk-button-small" @click="query()"><i class="uk-icon-search"></i></a>
@@ -192,11 +192,11 @@
             <tr>
                 <th class="uk-text-center table_colume_index">NO.</th>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Network & IP</th>
-                <th class="uk-text-center">Replicas</th>
-                <th class="uk-text-center">Operation</th>
+                <th>名称</th>
+                <th>镜像</th>
+                <th>网络 & IP</th>
+                <th class="uk-text-center">复制</th>
+                <th class="uk-text-center">操作</th>
             </tr>
             </thead>
 
@@ -254,7 +254,7 @@
                                            class=" uk-text-primary"
                                            @click="scale(service)"><span class="uk-icon-sliders"></span> Scale</a></li>
                                     <li><a href="#" @click="remove(service)"
-                                           class=" uk-text-danger"><span class="uk-icon-trash"></span> Remove</a></li>
+                                           class=" uk-text-danger"><span class="uk-icon-trash"></span>移除</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -270,12 +270,12 @@
                     <div class="uk-padding-remove" style="width: 92%;" >
                     <table class="uk-table uk-panel-box  uk-table-condensed">
                         <tr class="uk-alert">
-                            <td class="uk-text-bold">Task ID</td>
+                            <td class="uk-text-bold">任务 ID</td>
                             <td class="uk-text-bold">Slot</td>
-                            <td class="uk-text-bold">Node</td>
-                            <td class="uk-text-bold">Container</td>
-                            <td class="uk-text-bold">State</td>
-                            <td class="uk-text-bold">Create</td>
+                            <td class="uk-text-bold">节点</td>
+                            <td class="uk-text-bold">容器</td>
+                            <td class="uk-text-bold">状态</td>
+                            <td class="uk-text-bold">创建</td>
 
                         </tr>
                         <tr v-for="(task, index) in service.tasks">
@@ -310,12 +310,6 @@
         </table>
     </div>
     <div class="uk-width-6-6">
-        <div style="min-height:40px;" class="uk-text-center uk-margin-bottom">
-            <div><img height="27" width="120" src="../../img/logo.png"/></div>
-            <div>Copyright <span class="uk-icon-copyright"></span> Voovan Vsetful</div>
-            <div>Powered by Voovan open source framework.</div>
-            <div></div>
-        </div>
     </div>
 </div>
 

@@ -49,7 +49,7 @@
         </h3>
 
         <ul class="uk-tab" data-uk-switcher="{connect:'#Viewers'}">
-            <li><a href="#"><span class="uk-icon-sliders"></span> Summery</a></li>
+            <li><a href="#"><span class="uk-icon-sliders"></span> 概览</a></li>
         </ul>
         <div id="Viewers" class="uk-switcher">
             <div>
@@ -57,28 +57,28 @@
                     <table class="uk-table uk-overflow-container uk-panel-box">
                         <caption>
                             <div class="uk-grid">
-                                <div class="uk-width-5-6"><span class="uk-icon-clone"></span> Volume infomation</div>
+                                <div class="uk-width-5-6"><span class="uk-icon-clone"></span> 卷信息</div>
                             </div>
                         </caption>
                         <tbody>
                         <tr>
-                            <td class="uk-width-1-10 uk-text-right summeryField">Name </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">名称 </td>
                             <td class="uk-text-primary">{{viewVolume.name}}</td>
                         </tr>
                         <tr>
-                            <td class="uk-width-1-10 uk-text-right summeryField">Scope </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">范围 </td>
                             <td class="uk-text-success">{{viewVolume.scope}}</td>
                         </tr>
                         <tr>
-                            <td class="uk-width-1-10 uk-text-right summeryField">Driver </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">驱动 </td>
                             <td class="uk-text-warning">{{viewVolume.driver}}</td>
                         </tr>
                         <tr>
-                            <td class="uk-width-1-10 uk-text-right summeryField">Mountpoint </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">挂载点 </td>
                             <td class="uk-text-muted">{{viewVolume.mountpoint}}</td>
                         </tr>
                         <tr v-if="viewVolume.options!=null">
-                            <td class="uk-width-1-10 uk-text-right summeryField">Options </td>
+                            <td class="uk-width-1-10 uk-text-right summeryField">选项 </td>
                             <td class="uk-text-muted">{{viewVolume.options}}</td>
                         </tr>
                         </tbody>
@@ -89,12 +89,6 @@
         </div>
     </div>
     <div class="uk-width-6-6">
-        <div style="min-height:40px;" class="uk-text-center uk-margin-bottom">
-            <div><img height="27" width="120" src="../../img/logo.png"/></div>
-            <div>Copyright <span class="uk-icon-copyright"></span> Voovan Vsetful</div>
-            <div>Powered by Voovan open source framework.</div>
-            <div></div>
-        </div>
     </div>
 </div>
 

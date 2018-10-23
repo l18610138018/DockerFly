@@ -41,7 +41,7 @@
                         cmdHubImageInfo.term(this.searchParams.name);
                         cmdHubImageInfo.limit(this.searchParams.limit);
 
-                        var blockDialog = openBlockDialog("Searching image...");
+                        var blockDialog = openBlockDialog("查找镜像...");
                         cmdHubImageInfo.send(function(msg){
                             blockDialog.hide()
                             imageListVue.hubImageList = msg.sortBy("star_count", true);
@@ -50,7 +50,7 @@
                         }, function(status, errMsg){
                             blockDialog.hide()
                             var errorObj = eval("errorObj="+errMsg)
-                            alertError("Search image "+imageListVue.searchParams.name+" failed <br/>"+errorObj.errMsg);
+                            alertError("查找镜像 "+imageListVue.searchParams.name+" failed <br/>"+errorObj.errMsg);
                             cmdHubImageInfo.close();
                             cmdHubImageInfo.release();
                         })
@@ -61,14 +61,14 @@
                 pull: function (hubImage) {
                     try {
                         this.pullTag = "latest";
-                        UIkit.modal.prompt("Pull an image with tag:", this.pullTag, function(newvalue) {
+                        UIkit.modal.prompt("拉取标签的镜像:", this.pullTag, function(newvalue) {
                             this.pullTag = newvalue;
                             var cmdImageCreate = new CmdImageCreate();
                             cmdImageCreate.connect1(1800);
                             cmdImageCreate.fromImage(hubImage.name);
                             cmdImageCreate.tag(this.pullTag);
 
-                            var blockDialog = openBlockDialog("Pulling image...");
+                            var blockDialog = openBlockDialog("拉取镜像...");
                             cmdImageCreate.send(function(msg){
                                 blockDialog.hide();
                                 alert("<span class='uk-text-large uk-text-primary'>" +
@@ -108,7 +108,7 @@
             <div class="uk-panel uk-panel-box uk-text-bold uk-margin-bottom">
                 <div class="uk-grid">
                     <div class="uk-width-5-6 uk-form">
-                        <span class="mr5">Name:</span>
+                        <span class="mr5">名称:</span>
                         <input class="uk-form-width-medium"
                                type="text" placeholder="e.g. nginx" v-model="searchParams.name"/>
                         <select v-model="searchParams.limit">
@@ -145,7 +145,7 @@
                             </div>
                             <div class="uk-text-right uk-position-bottom-right uk-margin-bottom uk-margin-large-right">
                                 <a href="#" class="uk-button uk-button-small uk-button-success"
-                                   @click="pull(hubImage)"><span class="uk-icon-cloud-download"></span> Pull </a>
+                                   @click="pull(hubImage)"><span class="uk-icon-cloud-download"></span> 拉取 </a>
                             </div>
                         </div>
                     </div>
@@ -188,12 +188,6 @@
         </div>
     </div>
     <div class="uk-width-6-6">
-        <div style="min-height:40px;" class="uk-text-center uk-margin-bottom">
-            <div><img height="27" width="120" src="../../img/logo.png"/></div>
-            <div>Copyright <span class="uk-icon-copyright"></span> Voovan Vsetful</div>
-            <div>Powered by Voovan open source framework.</div>
-            <div></div>
-        </div>
     </div>
 </div>
 
