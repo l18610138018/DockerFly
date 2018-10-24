@@ -22,12 +22,8 @@
                 isSwarmManager:false
             },
             beforeMount: function(){
-                if(this.user == null){
-                    //window.location='login.html'
                       var user = checkUser("admin", "1234");
-                            if(user!=null) {
-                                setSessionStorage("User",user)
-                            }
+                      setSessionStorage("User",user);
                 }
                 this.resetIsSwarmManager();
             },
