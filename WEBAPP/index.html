@@ -18,11 +18,15 @@
         appVue = new Vue({
             el: "#app",
             data:{
-                user: getUser(),
+                user: {
+                    username:"admin",
+                    password:"1234"
+                }
+                	}
                 isSwarmManager:false
             },
             beforeMount: function(){
-                      var user = checkUser("admin", "1234");
+                      var user = checkUser("admin","1234");
                       setSessionStorage("User",user);
                 }
                 this.resetIsSwarmManager();
